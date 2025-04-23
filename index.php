@@ -15,16 +15,16 @@
 
             <hr style="width:50%">
         <div class="input-container">
-            <img src="userIcon.jpg" alt="user icon">
+            <img type="image" src="userIcon.jpg" alt="user icon">
             <input type="text" id="username" name="username" placeholder="username" required>
 
         <div class="input-container">
             <img src="lockIcon.jpg" alt="lock icon">
             <input type="password" id="password" name="password" placeholder="password" required>
             
-            <div>
+        <div>
             <a href="register.php">register here</a>
-            </div>
+        </div>
 
             <button type="submit">login</button>
         </form>

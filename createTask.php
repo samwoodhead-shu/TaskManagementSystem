@@ -9,11 +9,8 @@
 <body>
 
     <div class="header">
-        <button class="home-button" onclick="window.location.href='mainPage.php'">Home</button>
-
-        <div class="header-content">
             <h1>Create Task</h1>
-        </div>
+            <button class="home-button" onclick="window.location.href='mainPage.php'">Home</button>
     </div>
 
     <div class="container">

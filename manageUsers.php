@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users - Task Management System</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="manageUsers.css">
 </head>
 <body>
 
     <div class="header">
-        <button class="home-button" onclick="window.location.href='mainPage.php'">Home</button>
         <h1>Manage Users</h1>
+        <button class="home-button" onclick="window.location.href='mainPage.php'">Home</button>
     </div>
 
     <div class="container">

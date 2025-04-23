@@ -18,12 +18,13 @@
         
         <div class="header-right">
             <h2>Hello (User)</h2>
-            <div class="logout-button">
-                <a href="index.php" class="button-class">Logout</a>
-            </div>
         </div>
     </div>
 
+    <div class="logout-button">
+            <a href="index.php" class="button-class">Logout</a>
+    </div>
+    
     <div class="container">
         <div class="manage-users">
                 <a href="manageUsers.php" class="admin-link">Manage Users</a>

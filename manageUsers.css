@@ -8,7 +8,6 @@ body {
 .header {
     color: black;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: white;
@@ -16,20 +15,16 @@ body {
     position: relative;
 }
 
-.header-right {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5vh;
-}
-
 h1 {
     font-size: 24px;
     margin: 0;
 }
 
-h2 {
-    font-size: 18px;
-    margin: 0;
+hr {
+    height: 4px;
+    border-width: 0;
+    color: gray;
+    background-color: gray;
 }
 
 .button-class, button {
@@ -56,13 +51,6 @@ h2 {
     margin-left: 10px;
     display: inline-block;
     vertical-align: middle;
-}
-
-hr {
-    height: 4px;
-    border-width: 0;
-    color: gray;
-    background-color: gray;
 }
 
 .container {
@@ -119,31 +107,6 @@ input[type="date"] {
     cursor: pointer;
 }
 
-.task-icon {
-    margin-right: 8px;
-}
-
-.status {
-    padding: 5px 12px;
-    border-radius: 15px;
-    color: white;
-    font-size: 12px;
-    display: inline-block;
-    font-weight: bold;
-}
-
-.off-track {
-    background-color: red;
-}
-
-.on-track {
-    background-color: orange;
-}
-
-.completed {
-    background-color: green;
-}
-
 .progress-bar {
     background-color: #ddd;
     border-radius: 5px;
@@ -164,43 +127,9 @@ input[type="checkbox"] {
     margin-left: 8px;
 }
 
-.form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-form {
-    width: 300px;
-    text-align: left;
-}
-
 label, input {
     width: 100%;
     margin-bottom: 10px;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.manage-users {
-    text-align: right;
-}
-
-.admin-link {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-.admin-text {
-    font-size: 12px;
-    color: gray;
 }
 
 .home-button {
@@ -212,22 +141,9 @@ label, input {
     cursor: pointer;
     border-radius: 4px;
     padding: 8px 15px;
+    margin-left: 170vh;
 }
 
 .home-button:hover {
     background-color: #f0f0f0;
-}
-
-.input-container img {
-    width: 30px; 
-    height: 30px;
-    margin-right: 10px;
-}
-
-.input-container input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 8px;
-    font-size: 14px;
 }
