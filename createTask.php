@@ -21,6 +21,7 @@
             <thead>
                 <tr>
                     <th>Task Name</th>
+                    <th>Task Description</th>
                     <th>Due Date</th>
                     <th>(Group Admin Only)</th>
                 </tr>
@@ -28,6 +29,7 @@
             <tbody>
                 <tr>
                     <td><input type="text" placeholder="Enter Task Name"></td>
+                    <td><input type="text" placeholder="Enter Task Description"></td>
                     <td><input type="date"></td>
                     <td>
                         <select>

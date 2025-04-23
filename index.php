@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Task Management System</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -14,8 +14,12 @@
         <form action="mainPage.php" method="post">
 
             <hr style="width:50%">
+        <div class="input-container">
+            <img src="userIcon.jpg" alt="user icon">
             <input type="text" id="username" name="username" placeholder="username" required>
 
+        <div class="input-container">
+            <img src="lockIcon.jpg" alt="lock icon">
             <input type="password" id="password" name="password" placeholder="password" required>
             
             <div>
