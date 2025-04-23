@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Task - Task Management System</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="manageTask.css">
 </head>
 <body>
 
