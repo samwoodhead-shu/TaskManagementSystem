@@ -35,67 +35,49 @@
        
         <div class="search-bar">
             <input type="text" placeholder="Search by name">
-            <button class="add-task" onclick="window.location.href='createTask.php'">+</button>
+            <button class="add-task" onclick="window.location.href='createTaskPage.php'">+</button>
             </div>
 
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Due Date</th>
-                    <th>% Complete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="task-icon">📋</span> Task name</td>
-                    <td><span class="status off-track">Off track</span></td>
-                    <td>dd/mm/yyyy</td>
-                    <td>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 0%;"></div> 0%
-                        </div>
-                        <input type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="task-icon">📋</span> Task name</td>
-                    <td><span class="status off-track">Off track</span></td>
-                    <td>dd/mm/yyyy</td>
-                    <td>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 10%;"></div> 10%
-                        </div>
-                        <input type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="task-icon">📋</span> Task name</td>
-                    <td><span class="status on-track">On Track</span></td>
-                    <td>dd/mm/yyyy</td>
-                    <td>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 66%;"></div> 66%
-                        </div>
-                        <input type="checkbox">
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="task-icon">📋</span> Task name</td>
-                    <td><span class="status completed">Completed</span></td>
-                    <td>dd/mm/yyyy</td>
-                    <td>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 100%;"></div> 100%
-                        </div>
-                        <input type="checkbox" checked>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
 
+
+<?php
+    $db = new SQLite3('TaskManagementDB.db');
+    $select_query = "SELECT * FROM Task";
+    $result = $db->query($select_query);
+
+    echo "<table>";
+    echo "<tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Due Date</th>
+            <th>% Complete</th>
+        </tr>";
+
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $taskName= $row['taskName'];
+        $description= $row['description'];
+        $currentStatus= $row['currentStatus'];
+        $dueDate= $row['dueDate'];
+        $completion= $row['progress'];
+    
+        echo "<tr> 
+                <td>📋$taskName</td> 
+                <td>$description</td>
+                <td><span class=\"status in-progress\">In Progress $currentStatus</span></td>
+                <td>$dueDate</td>
+                <td>
+                    <div class=\"progress-bar\">
+                        <div class=\"progress\" style=\"width: $completion%;\"></div> $completion%
+                    </div>    
+                </td>
+            
+
+            </tr>";
+    }
+    echo "</table>";
+    $db->close();
+?>
+
+</body>
 </html>

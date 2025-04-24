@@ -10,10 +10,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0px 20px;
     background-color: white;
     border-bottom: 2px solid gray;
     position: relative;
+    height: 10vh;
+    margin-top: 1vh;
 }
 
 .header-right {
@@ -22,12 +24,12 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 32px;
     margin: 0;
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 25px;
     margin: 0;
 }
 
@@ -54,7 +56,7 @@ h2 {
     background-color: blue;
     color: white;
     border: none;
-    padding: 6px 10px;
+    padding: 10px 10px;
     cursor: pointer;
     font-size: 14px;
     border-radius: 5px;
@@ -90,6 +92,7 @@ hr {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 0px;
 }
 
 table {
@@ -137,11 +140,11 @@ input[type="date"] {
     font-weight: bold;
 }
 
-.off-track {
+.not-started{
     background-color: red;
 }
 
-.on-track {
+.in-progress {
     background-color: orange;
 }
 

@@ -37,14 +37,14 @@
                 <input type="text" id="adminID" name="adminID" placeholder="admin ID">
             </div>
 
-            <div class="form-links">
-                <a href="index.php">login here</a>
-            </div>
-
             <div class="form-group">
                 <button type="submit">register</button>
             </div>
         </form>
+        
+        <div class="form-links">
+                <a href="index.php">login here</a>
+        </div>
     </div>
 </body>
 </html>

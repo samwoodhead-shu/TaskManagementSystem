@@ -1,46 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Task - Task Management System</title>
-    <link rel="stylesheet" href="createTask.css">
-</head>
-<body>
+<?php
 
-    <div class="header">
-            <h1>Create Task</h1>
-            <button class="home-button" onclick="window.location.href='mainPage.php'">Home</button>
-    </div>
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $taskName = $_POST['taskName'];
 
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Task Name</th>
-                    <th>Task Description</th>
-                    <th>Due Date</th>
-                    <th>(Group Admin Only)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="text" placeholder="Enter Task Name"></td>
-                    <td><input type="text" placeholder="Enter Task Description"></td>
-                    <td><input type="date"></td>
-                    <td>
-                        <select>
-                            <option>Select user(s) for task</option>
-                            <option>User 1</option>
-                            <option>User 2</option>
-                            <option>User 3</option>
-                        </select>
-                    </td>
-                    <td><button class="add-task">+</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    $db = new SQLite3('TaskManagementDB.db');
 
-</body>
-</html>
+    $stmt = $db->prepare("INSERT INTO Task (userID, taskName, dueDate, progress) 
+    VALUES ('u1',:taskName,'24/05/2006',21)");
+    $stmt->bindValue(':taskName', $taskName, SQLITE3_TEXT);
+
+    if ($stmt->execute()) {
+        echo "A new task  created successfully!";
+    } else {
+        echo "Failed to create task.";
+    }
+$db->close();
+}
+?>

@@ -22,12 +22,14 @@
             <img src="lockIcon.jpg" alt="lock icon">
             <input type="password" id="password" name="password" placeholder="password" required>
             
-        <div>
-            <a href="register.php">register here</a>
-        </div>
+
 
             <button type="submit">login</button>
         </form>
+
+        <div>
+            <a href="register.php">register here</a>
+        </div>
 
     </div>
 </body>
