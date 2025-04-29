@@ -8,7 +8,6 @@ body {
 .header {
     color: black;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: white;
@@ -19,6 +18,13 @@ body {
 h1 {
     font-size: 24px;
     margin: 0;
+}
+
+hr {
+    height: 4px;
+    border-width: 0;
+    color: gray;
+    background-color: gray;
 }
 
 .button-class, button {
@@ -34,21 +40,54 @@ h1 {
     border-radius: 4px;
 }
 
-hr {
-    height: 4px;
-    border-width: 0;
-    color: gray;
-    background-color: gray;
+.add-task {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .container {
+    position: relative;
     width: 80%;
     margin: auto;
     padding-top: 20px;
 }
 
-.home-button:hover {
-    background-color: #f0f0f0;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .home-button {
@@ -60,4 +99,11 @@ hr {
     cursor: pointer;
     border-radius: 4px;
     padding: 8px 15px;
+    margin-left: 170vh;
 }
+
+.home-button:hover {
+    background-color: #f0f0f0;
+}
+
+

@@ -50,6 +50,7 @@
                             }
                             echo "</select></td>";
                         }
+                        $db->close();
                     ?>
 
                     <td><button type="submit" class="add-task">+</button></td>

@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="mainPage.css">
 </head>
 
+<script>
+    function filterTasks() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const table = document.getElementById("taskTable");
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            const nameCell = rows[i].getElementsByTagName("td")[0];
+            if (nameCell) {
+                const taskText = nameCell.textContent || nameCell.innerText;
+                rows[i].style.display = taskText.toLowerCase().includes(input) ? "" : "none";
+            }
+        }
+    }
+</script>
+
 <body>
 
 
@@ -32,7 +48,7 @@ if($_SESSION['groupAdmin']==1)
 {
 ?>
         <div class="manage-users">
-                <a href="manageUsers.php" class="admin-link">Manage Users</a>
+                <a href="manageUsersPage.php" class="admin-link">Manage Users</a>
                 <span class="admin-text">(Admin Only)</span>
         </div>
 <?php } ?>
@@ -40,16 +56,16 @@ if($_SESSION['groupAdmin']==1)
 
        
         <div class="search-bar">
-            <input type="text" placeholder="Search by name">
+            <input type="text" id="searchInput" placeholder="Search by name" onkeyup="filterTasks()">
             <button class="add-task" onclick="window.location.href='createTaskPage.php'">+</button>
-            </div>
+        </div>
 <?php
 
     $db = new SQLite3('TaskManagementDB.db');
     $userID=$_SESSION['userID'];
     $select_query = "SELECT * FROM Task WHERE userID='$userID'";
     $result = $db->query($select_query);
-    echo "<table>";
+    echo "<table id='taskTable'>";
     echo "<tr>
             <th>Name</th>
             <th>Description</th>
@@ -59,11 +75,14 @@ if($_SESSION['groupAdmin']==1)
         </tr>";
 
     while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $taskID= $row['taskID'];
         $taskName= $row['taskName'];
         $description= $row['description'];
         $dueDate= $row['dueDate'];
         $completion= $row['progress'];
-   
+        $date = new DateTime($dueDate);
+        $formattedDate=$date->format("d/m/Y");
+
         if($completion==0) {
             $currentStatus = "not-started";
         }
@@ -75,10 +94,10 @@ if($_SESSION['groupAdmin']==1)
         }
     
         echo "<tr> 
-                <td>📋$taskName</td> 
+                <td><a id=\"taskLink\" href=\"manageTaskPage.php?taskID=$taskID\">📋$taskName</td> 
                 <td>$description</td>
                 <td><span class=\"status $currentStatus\">$currentStatus</span></td>
-                <td>$dueDate</td>
+                <td>$formattedDate</td>
                 <td>
                     <div class=\"progress-bar\">
                         <div class=\"progress\" style=\"width: $completion%;\"></div> $completion%

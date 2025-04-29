@@ -6,18 +6,18 @@
             $email = $_POST['email'];
             $telNo = $_POST['telNo'];
             $passkey = $_POST['password'];
-
+            $groupAdmin=isset($_POST['groupAdmin']);
             $db = new SQLite3('TaskManagementDB.db');
             // TODO Check if username already exists and fail gracefully
             
-            $stmt = $db->prepare("INSERT INTO User (username, fName, lName, email, telNo, passkey) 
-            VALUES ('$username', '$fName', '$lName', '$email', '$telNo', '$passkey')");
+            $stmt = $db->prepare("INSERT INTO User (username, fName, lName, email, telNo, passkey, groupAdmin) 
+            VALUES ('$username', '$fName', '$lName', '$email', '$telNo', '$passkey', '$groupAdmin')");
             $stmt->bindValue(':username', $username, SQLITE3_TEXT);
 
         
         
             if ($stmt->execute()) {
-                echo "A new user  created successfully!";
+                echo "A new user created successfully!";
                 header("refresh:2;url=index.php");
                 exit;
             } else {

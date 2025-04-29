@@ -1,20 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Task - Task Management System</title>
-    <link rel="stylesheet" href="manageTask.css">
-</head>
-<body>
+<?php
+session_start();
 
-    <div class="header">
-        <button class="home-button" onclick="window.location.href='mainPage.php'">Home</button>
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        <div class="header-content">
-            <h1>Manage Task</h1>
-        </div>
-    </div>
+    $submitbtn = $_POST['submitbtn'];
+    $taskID = $_POST['taskID'];
+    $taskName = $_POST['taskName'];
 
-</body>
-</html>
+    if ($submitbtn == "delete") {
+        $db = new SQLite3('TaskManagementDB.db');
+        $sql = "DELETE FROM Task WHERE taskID = $taskID";
+
+        if ($db->exec($sql)) {
+            $db->close();
+            echo "Task '$taskName' deleted successfully!";
+            header("refresh:2;url=mainPage.php");
+        } else {
+            echo "Failed to delete task.";
+        }
+
+    } else if ($submitbtn == "update") {
+        $description = $_POST['description'];
+        $dueDate = $_POST['dueDate'];
+        $userID = $_SESSION['userID'];
+
+        $sql = "UPDATE Task 
+                SET userID = $userID,
+                    taskName = '$taskName',
+                    description = '$description',
+                    dueDate = '$dueDate'
+                WHERE taskID = $taskID";
+
+        $db = new SQLite3('TaskManagementDB.db');
+
+        if ($db->exec($sql)) {
+            $db->close();
+            echo "Task updated successfully!";
+            header("refresh:2;url=mainPage.php");
+        } else {
+            echo "Failed to update task.";
+        }
+
+    } else {
+        echo "Invalid operation requested.";
+    }
+
+}
+?>

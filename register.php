@@ -37,8 +37,8 @@
             </div>
 
             <div class="checkbox-group">
-                <input type="checkbox" id="GroupAdmin" name="GroupAdmin" value="GroupAdmin">
-                <label for="GroupAdmin">Group Admin</label>
+                <input type="checkbox" id="groupAdmin" name="groupAdmin" value="groupAdmin">
+                <label for="groupAdmin">Group Admin</label>
             </div>
 
             <div class="form-group">
