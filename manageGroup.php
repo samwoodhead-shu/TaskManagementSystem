@@ -1,3 +1,5 @@
+<!-- TODO manage group PHP -->
+
 <?php
 session_start();
 

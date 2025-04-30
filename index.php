@@ -15,13 +15,10 @@
 
             <hr style="width:50%">
         <div class="input-container">
-            <img type="image" src="userIcon.jpg" alt="user icon">
-            <!-- TODO remove username + password defaults -->
-            <input type="text" id="username" name="username" placeholder="username" required value="sam_woodhead">
+            <input type="text" id="username" name="username" placeholder="username" required>
 
         <div class="input-container">
-            <img src="lockIcon.jpg" alt="lock icon">
-            <input type="password" id="passkey" name="passkey" placeholder="password" required value="s4m!">
+            <input type="password" id="passkey" name="passkey" placeholder="password" required>
             
 
 

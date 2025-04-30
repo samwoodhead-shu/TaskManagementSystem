@@ -51,6 +51,11 @@ if($_SESSION['groupAdmin']==1)
                 <a href="manageUsersPage.php" class="admin-link">Manage Users</a>
                 <span class="admin-text">(Admin Only)</span>
         </div>
+
+        <div class="manage-group">
+                <a href="manageGroupPage.php" class="admin-link">Manage Group</a>
+                <span class="admin-text">(Admin Only)</span>
+        </div>
 <?php } ?>
         <h3>My tasks</h3>
 
@@ -63,7 +68,9 @@ if($_SESSION['groupAdmin']==1)
 
     $db = new SQLite3('TaskManagementDB.db');
     $userID=$_SESSION['userID'];
-    $select_query = "SELECT * FROM Task WHERE userID='$userID'";
+    //$select_query = "SELECT * FROM Task WHERE userID='$userID'";
+    $select_query = "SELECT * FROM Task WHERE userID='$userID' or 
+                groupID in (select groupID from GroupMembers where userID='$userID')";
     $result = $db->query($select_query);
     echo "<table id='taskTable'>";
     echo "<tr>

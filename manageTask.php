@@ -22,13 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if ($submitbtn == "update") {
         $description = $_POST['description'];
         $dueDate = $_POST['dueDate'];
+        $progress = $_POST['progress'];
         $userID = $_SESSION['userID'];
 
         $sql = "UPDATE Task 
                 SET userID = $userID,
                     taskName = '$taskName',
                     description = '$description',
-                    dueDate = '$dueDate'
+                    dueDate = '$dueDate',
+                    progress = '$progress'
                 WHERE taskID = $taskID";
 
         $db = new SQLite3('TaskManagementDB.db');

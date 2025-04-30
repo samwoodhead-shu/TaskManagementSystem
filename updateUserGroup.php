@@ -11,11 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $taskName = $_POST['taskName'];
     $description = $_POST['description'];
     $dueDate = $_POST['dueDate'];
-    
+    $groupID = $_POST['groupID'];
+
     $db = new SQLite3('TaskManagementDB.db');
 
-    $stmt = $db->prepare("INSERT INTO Task (userID, taskName, description, dueDate) 
-                          VALUES (:userID, :taskName, :description, :dueDate)");
+    $stmt = $db->prepare("INSERT INTO Task (userID, taskName, description, dueDate, taskGroupID) 
+                          VALUES (:userID, :taskName, :description, :dueDate, :groupID)");
 
     if ($stmt->execute()) {
         echo "Task created successfully!";

@@ -13,27 +13,27 @@
             <hr style="width:50%">
 
             <div class="form-group">
-                <input type="text" id="username" name="username" placeholder="username*" required value="joey">
+                <input type="text" id="username" name="username" placeholder="username*" required>
             </div>
 
             <div class="form-group">
-                <input type="text" id="fName" name="fName" placeholder="first name*" required value="Joe">
+                <input type="text" id="fName" name="fName" placeholder="first name*" required>
             </div>
 
             <div class="form-group">
-                <input type="text" id="lName" name="lName" placeholder="last name*" required value="Bloggs">
+                <input type="text" id="lName" name="lName" placeholder="last name*" required>
             </div>
 
             <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="email*" required value="joe@gmail.com">
+                <input type="email" id="email" name="email" placeholder="email*" required>
             </div>
 
             <div class="form-group">
-                <input type="tel" id="telNo" name="telNo" placeholder="telephone number*" required value="07123456789">
+                <input type="tel" id="telNo" name="telNo" placeholder="telephone number*" required>
             </div>
 
             <div class="form-group">
-                <input type="password" id="password" name="password" placeholder="password*" required value="j0e">
+                <input type="password" id="password" name="password" placeholder="password*" required>
             </div>
 
             <div class="checkbox-group">

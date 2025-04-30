@@ -24,6 +24,7 @@
                 exit;
             } else {
                 echo "<p style='color: red; text-align: center;'>Invalid username or password.</p>";
+                header("refresh:2;url=index.php");
             }
         }
         ?>

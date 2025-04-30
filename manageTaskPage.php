@@ -49,7 +49,7 @@
                     <td><input type="text" id="taskName" name="taskName" placeholder="Enter Task Name" value= "<?php echo $taskName ?>" required></td>
                     <td><input type="text" id="description" name="description" placeholder="Enter Task Description" value= "<?php echo $description ?>"></td>
                     <td><input type="date" id="dueDate" name="dueDate" value= "<?php echo $dueDate ?>"></td>
-                    <td><input type="number" id="progress" name="progress" placeholder="Enter progress" value= "<?php echo $progress ?>" required></td>
+                    <td><input type="number" id="progress" name="progress" min="0" max="100" placeholder="Enter progress" value= "<?php echo $progress ?>" required></td>
                 </tr>
             </tbody>
         </table>
@@ -58,15 +58,5 @@
 
     </form>
     </div>
-
-    <div class="container">
-    <table>
-            <tbody>
-                <tr>
-                    <td><input type="text" id="feedback" name="feedback" placeholder="feedback here"></td>
-                </tr>
-            </tbody>
-    </table>
-
 </body>
 </html>

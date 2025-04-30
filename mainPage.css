@@ -34,9 +34,9 @@ h2 {
 }
 
 .logout-button{
-    position: fixed;
+    position: absolute;
     margin-top: 2.5vh;
-    margin-left: 191vh;
+    margin-left: 190vh;
 }
 
 .button-class, button {
@@ -191,8 +191,9 @@ label, input {
     gap: 5px;
 }
 
-.manage-users {
+.manage-users, .manage-group {
     text-align: right;
+    margin-top: 2vh;
 }
 
 .admin-link {
