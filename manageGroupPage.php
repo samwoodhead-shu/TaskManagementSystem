@@ -55,6 +55,15 @@ $selectedGroupID = ($_SESSION['groupAdmin'] == 1 && isset($_POST['selectedGroup'
                     $stmt->bindValue(':groupID', $selectedGroupID, SQLITE3_INTEGER);
                     $tasks = $stmt->execute();
 
+
+                    $userStmt = $db->prepare("SELECT group_concat(u.fName || ' ' || u.lName, ', ') as userList from User u
+                    JOIN GroupMembers gm on gm.userID = u.userID
+                    WHERE groupID = :groupID");
+                    $userStmt->bindValue(':groupID', $selectedGroupID, SQLITE3_INTEGER);
+                    $usersResult = $userStmt->execute();
+                    $userRow = $usersResult->fetchArray(SQLITE3_ASSOC);
+
+
                     $first = true;
                     while ($task = $tasks->fetchArray(SQLITE3_ASSOC)) {
                         if (!$first) echo "<tr>"; // empty cell for group column
@@ -65,14 +74,17 @@ $selectedGroupID = ($_SESSION['groupAdmin'] == 1 && isset($_POST['selectedGroup'
                                     <div class='progress' style='width: {$task['progress']}%;'></div>
                                 </div>
                               </td>";
-                        echo "<td rowspan='999'></td></tr>"; // placeholder for Members column
-                        $first = false;
-                    }
-
-                    if ($first) {
-                        echo "<td colspan='4'>No tasks found for this group.</td><td></td></tr>";
-                    }
-
+                              if ($first) {
+                                echo "<td rowspan='999'>" . $userRow['userList'] . "</td>";
+                              }
+                              $first = false;
+                         }
+                         if ($first) {
+                            echo "<td colspan='3'>No tasks found for this group.</td>";
+                            echo "<td rowspan='999'>" . $userRow['userList'] . "</td>";
+                        }
+                        
+                        echo "</tr>";
                     $db->close();
                     ?>
                 </tr>
